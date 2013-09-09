@@ -1,9 +1,9 @@
 {
-    "name":        "nixilla/ApiLoggerBundle",
+    "name":        "nixilla/api-logger-bundle",
     "type":        "symfony-bundle",
     "description": "API logger bundle help your app with API calls monitoring",
     "keywords":    [ "api", "logging" ],
-    "homepage":    "https://github.com/nixilla/ApiLoggerBundle",
+    "homepage":    "https://github.com/nixilla/api-logger-bundle",
     "license":     "MIT",
     "authors": [
         {
