@@ -1,0 +1,24 @@
+{
+    "name":        "nixilla/ApiLoggerBundle",
+    "type":        "symfony-bundle",
+    "description": "API logger bundle help your app with API calls monitoring",
+    "keywords":    [ "api", "logging" ],
+    "homepage":    "https://github.com/nixilla/ApiLoggerBundle",
+    "license":     "MIT",
+    "authors": [
+        {
+            "name": "Janusz Slota",
+            "email": "janusz.slota@nixilla.com"
+        }
+    ],
+    "require": {
+        "php":                          ">=5.4",
+        "symfony/framework-bundle":     "~2.1"
+    },
+    "autoload": {
+        "psr-0": {
+            "Nixilla\\Api\\LoggerBundle": ""
+        }
+    },
+    "target-dir": "Nixilla/Api/LoggerBundle"
+}
