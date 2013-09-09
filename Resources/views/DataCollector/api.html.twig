@@ -1,0 +1,46 @@
+{% extends 'WebProfilerBundle:Profiler:layout.html.twig' %}
+
+{% block toolbar %}
+    {% set icon %}
+    <img width="20" height="28" alt="Database" src="data:image/png;base64,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" />
+    <span class="sf-toolbar-status">{{ collector.callsCount }}</span>
+    {% endset %}
+    {% set text %}
+    <div class="sf-toolbar-info-piece">
+        <b>API calls</b>
+        <span>{{ collector.callsCount }}</span>
+    </div>
+    {% endset %}
+    {% include 'WebProfilerBundle:Profiler:toolbar_item.html.twig' with { 'link': profiler_url } %}
+{% endblock %}
+
+{% block menu %}
+<span class="label">
+    <span class="icon"><img width="28" src="data:image/png;base64,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" alt="" /></span>
+    <strong>API Calls</strong>
+    <span class="count">
+        <span>{{ collector.callsCount }}</span>
+    </span>
+</span>
+{% endblock %}
+
+{% block panel %}
+    <h2>API Calls</h2>
+
+    <table>
+        <tr>
+            <th>URL</th>
+            <th>Method</th>
+            <th>Time</th>
+            <th>Cached</th>
+        </tr>
+    {% for call in collector.calls %}
+        <tr>
+            <td>{{ call.path|slice(0,100) }}</td>
+            <td>{{ call.method }}</td>
+            <td>{{ (call.time*1000)|number_format(2) }} ms</td>
+            <td>{% if call.from_cache %}yes{% else %}no{% endif %}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
