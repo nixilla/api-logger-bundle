@@ -1,10 +1,16 @@
 parameters:
-    nixlla.api.data_collector.class: Nixilla\Api\LoggerBundle\DataCollector\ApiDataCollector
+    nixilla.api.data_collector.class: Nixilla\Api\LoggerBundle\DataCollector\ApiDataCollector
+    nixilla.api.logger.class: Nixilla\Api\LoggerBundle\Logger\ApiLogger
+
 
 services:
 
-    nixlla.api.data_collector:
-        class: %nixlla.api.data_collector.class%
-        arguments: [ @api.logger ]
+    nixilla.api.data_collector:
+        class: %nixilla.api.data_collector.class%
+        arguments: [ @nixilla.api.logger ]
         tags:
             - { name: data_collector, template: "NixillaApiLoggerBundle:DataCollector:api", id: "api" }
+
+    nixilla.api.logger:
+        class: %nixilla.api.logger.class%
+        arguments: [ @logger, %kernel.debug% ]
