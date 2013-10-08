@@ -40,7 +40,7 @@ service used by this bundle by adding this few lines to your config_dev.yml file
         - { resource: config.yml }
 
     parameters:
-        buzz.client.class: Nixilla\Api\LoggerBundle\Proxy\Buzz
+        buzz.client.class: Nixilla\Api\LoggerBundle\Proxy\Buzz\Client\Curl
 
     services:
         hwi_oauth.http_client:

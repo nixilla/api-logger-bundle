@@ -1,17 +1,15 @@
 <?php
 
-namespace Nixilla\Api\LoggerBundle\Proxy;
+namespace Nixilla\Api\LoggerBundle\Proxy\Buzz;
 
-use Buzz\Client\Curl;
 use Buzz\Message\MessageInterface;
 use Buzz\Message\RequestInterface;
 use Nixilla\Api\LoggerBundle\Logger\ApiLogger;
 use Nixilla\Api\LoggerBundle\Traits\Log;
 
-class Buzz extends Curl
+trait Common
 {
     use Log;
-
     /**
      * @var ApiLogger
      */
@@ -37,8 +35,10 @@ class Buzz extends Curl
             $this->getLogger()->logCall(
                 $request->getResource(),
                 $request->getMethod(),
-                $time, $request->getHeaders(),
-                $payload, $response->getHeaders(),
+                $time,
+                $request->getHeaders(),
+                $payload,
+                $response->getHeaders(),
                 $response->getContent()
             );
         }

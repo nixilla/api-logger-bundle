@@ -35,7 +35,7 @@
     {% for call in collector.calls %}
         <table>
             <tr>
-                <th colspan="2">{{ call.method }} {{ call.path|slice(0,100) }}</th>
+                <th colspan="2">{{ call.method }} {{ call.path }}</th>
             </tr>
             <tr>
                 <th>Time:</th>
