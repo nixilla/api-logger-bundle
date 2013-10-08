@@ -27,7 +27,7 @@ class ApiLogger implements Api
         $this->debug = $debug;
     }
 
-    public function logCall($path, $method, $time, $fromCache = false)
+    public function logCall($path, $method, $time, array $requestHeaders = [], array $params = [], array $responseHeaders = [], $result = null)
     {
         if($this->debug)
         {
@@ -35,13 +35,16 @@ class ApiLogger implements Api
                 'path' => $path,
                 'method' => $method,
                 'time' => $time,
-                'from_cache' => $fromCache
+                'request_headers' => $requestHeaders,
+                'params' => $params,
+                'response_headers' => $responseHeaders,
+                'result' => $result
             ];
         }
 
         if(null !== $this->logger)
         {
-            $this->logger->info(sprintf("%s (%s) %0.2f ms, cached: %s", $path, $method, $time * 1000, $fromCache ? 'true' : 'false'));
+            $this->logger->info(sprintf("%s (%s) %0.2f ms, params: %s", $path, $method, $time * 1000, json_encode($params)));
         }
     }
 

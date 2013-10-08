@@ -10,6 +10,10 @@
         <b>API calls</b>
         <span>{{ collector.callsCount }}</span>
     </div>
+    <div class="sf-toolbar-info-piece">
+        <b>Query time</b>
+        <span>{{ '%0.2f'|format(collector.time * 1000) }} ms</span>
+    </div>
     {% endset %}
     {% include 'WebProfilerBundle:Profiler:toolbar_item.html.twig' with { 'link': profiler_url } %}
 {% endblock %}
@@ -20,6 +24,7 @@
     <strong>API Calls</strong>
     <span class="count">
         <span>{{ collector.callsCount }}</span>
+        <span>{{ '%0.0f'|format(collector.time * 1000) }} ms</span>
     </span>
 </span>
 {% endblock %}
@@ -27,20 +32,34 @@
 {% block panel %}
     <h2>API Calls</h2>
 
-    <table>
-        <tr>
-            <th>URL</th>
-            <th>Method</th>
-            <th>Time</th>
-            <th>Cached</th>
-        </tr>
     {% for call in collector.calls %}
-        <tr>
-            <td>{{ call.path|slice(0,100) }}</td>
-            <td>{{ call.method }}</td>
-            <td>{{ (call.time*1000)|number_format(2) }} ms</td>
-            <td>{% if call.from_cache %}yes{% else %}no{% endif %}</td>
-        </tr>
+        <table>
+            <tr>
+                <th colspan="2">{{ call.method }} {{ call.path }}</th>
+            </tr>
+            <tr>
+                <th>Time:</th>
+                <td>{{ (call.time*1000)|number_format(2) }} ms</td>
+            </tr>
+            <tr>
+                <th>Request headers:</th>
+                <td>{{ call.request_headers|yaml_encode }}</td>
+            </tr>
+            {% if call.method != 'GET' %}
+                <tr>
+                    <th>Request payload</th>
+                    <td>{{ call.params|yaml_encode }}</td>
+                </tr>
+            {% endif %}
+            <tr>
+                <th>Response headers:</th>
+                <td>{{ call.response_headers|yaml_encode }}</td>
+            </tr>
+            <tr>
+                <th>Result</th>
+                <td>{{ call.result }}</td>
+            </tr>
+        </table>
     {% endfor %}
-    </table>
+
 {% endblock %}

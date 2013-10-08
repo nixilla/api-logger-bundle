@@ -1,6 +1,7 @@
 parameters:
     nixilla.api.data_collector.class: Nixilla\Api\LoggerBundle\DataCollector\ApiDataCollector
     nixilla.api.logger.class: Nixilla\Api\LoggerBundle\Logger\ApiLogger
+    nixilla.buzz.logger.class: Nixilla\Api\LoggerBundle\Logger\BuzzLogger
 
 
 services:

@@ -54,4 +54,13 @@ class ApiDataCollector extends DataCollector
     {
         return $this->data['calls_count'];
     }
+
+    public function getTime()
+    {
+        $total = 0;
+        foreach($this->data['calls'] as $call)
+            $total += $call['time'];
+
+        return $total;
+    }
 }
