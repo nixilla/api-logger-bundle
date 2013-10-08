@@ -10,6 +10,10 @@
         <b>API calls</b>
         <span>{{ collector.callsCount }}</span>
     </div>
+    <div class="sf-toolbar-info-piece">
+        <b>Query time</b>
+        <span>{{ '%0.2f'|format(collector.time * 1000) }} ms</span>
+    </div>
     {% endset %}
     {% include 'WebProfilerBundle:Profiler:toolbar_item.html.twig' with { 'link': profiler_url } %}
 {% endblock %}
@@ -20,13 +24,13 @@
     <strong>API Calls</strong>
     <span class="count">
         <span>{{ collector.callsCount }}</span>
+        <span>{{ '%0.0f'|format(collector.time * 1000) }} ms</span>
     </span>
 </span>
 {% endblock %}
 
 {% block panel %}
     <h2>API Calls</h2>
-
 
     {% for call in collector.calls %}
         <table>
