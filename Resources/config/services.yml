@@ -14,4 +14,4 @@ services:
 
     nixilla.api.logger:
         class: "%nixilla.api.logger.class%"
-        arguments: [ "@logger, %kernel.debug%" ]
+        arguments: [ "@logger", "%kernel.debug%" ]
