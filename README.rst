@@ -12,10 +12,11 @@ Via composer:
 
     {
         "require-dev": {
-            "nixilla/api-logger-bundle": "~0.3" // use "~0.2.1" for Symfony < 3
+            "nixilla/api-logger-bundle": "~0.3"
         }
     }
 
+use "~0.2.1" for Symfony < 3
 
 Add bundle to your AppKernel:
 
