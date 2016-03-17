@@ -12,10 +12,11 @@ Via composer:
 
     {
         "require-dev": {
-            "nixilla/api-logger-bundle": "dev-master"
+            "nixilla/api-logger-bundle": "~0.3"
         }
     }
 
+use "~0.2.1" for Symfony < 3
 
 Add bundle to your AppKernel:
 
@@ -44,9 +45,9 @@ If you're use HWIOAuthBundle and you want to monitor all OAuth API calls, you ca
 
     services:
         hwi_oauth.http_client:
-            class: %buzz.client.class%
+            class: "%buzz.client.class%"
             calls:
-                - [ 'setLogger', [ @nixilla.api.logger ] ]
+                - [ "setLogger", [ "@nixilla.api.logger" ] ]
 
 
 If you're using `sensio/buzz-bundle`, you may want to override the `buzz.client` in config_dev.yml
@@ -64,6 +65,6 @@ If you're using `sensio/buzz-bundle`, you may want to override the `buzz.client`
         buzz.client:
             class: %buzz.client.class%
             calls:
-                - [ 'setTimeout', [ %buzz.client.timeout% ] ]
-                - [ 'setLogger', [ @nixilla.api.logger ] ]
+                - [ "setTimeout", [ "%buzz.client.timeout%" ] ]
+                - [ "setLogger", [ "@nixilla.api.logger" ] ]
 
