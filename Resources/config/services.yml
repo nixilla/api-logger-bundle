@@ -7,11 +7,11 @@ parameters:
 services:
 
     nixilla.api.data_collector:
-        class: %nixilla.api.data_collector.class%
-        arguments: [ @nixilla.api.logger ]
+        class: "%nixilla.api.data_collector.class%"
+        arguments: [ "@nixilla.api.logger" ]
         tags:
-            - { name: data_collector, template: "NixillaApiLoggerBundle:DataCollector:api", id: "api" }
+            - { name: "data_collector", template: "NixillaApiLoggerBundle:DataCollector:api", id: "api" }
 
     nixilla.api.logger:
-        class: %nixilla.api.logger.class%
-        arguments: [ @logger, %kernel.debug% ]
+        class: "%nixilla.api.logger.class%"
+        arguments: [ "@logger, %kernel.debug%" ]
