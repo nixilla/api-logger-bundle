@@ -35,7 +35,9 @@
     {% for call in collector.calls %}
         <table>
             <tr>
-                <th colspan="2">{{ call.method }} {{ call.path }}</th>
+                <th colspan="2">{{ call.method }} {{ call.path }}
+                    <a target="_blank"
+                       href="{{ call.host ~ call.path ~ '?' ~ call.params|url_encode }}">Open URL</a></th>
             </tr>
             <tr>
                 <th>Time:</th>
