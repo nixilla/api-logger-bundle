@@ -37,7 +37,7 @@
             <tr>
                 <th colspan="2">{{ call.method }} {{ call.host ~ call.path }}
                     {% if call.method == 'GET' %}
-                        <a target="_blank" href="{{ call.host ~ call.path ~ '?' ~ call.params|url_encode }}">Open URL</a>
+                        <a target="_blank" href="{{ call.host ~ call.path }}{% if call.params %}{{ '?' ~ call.params|url_encode }}{% endif %}">Open URL</a>
                     {% endif %}</th>
             </tr>
             <tr>
@@ -55,7 +55,7 @@
                 </tr>
                 <tr>
                     <th>cURL command</th>
-                    <td>{{ 'curl -X ' ~ call.method|upper ~ ' --data "' ~ call.params|url_encode ~ '" ' ~ call.host ~ call.path|url_encode }}</td>
+                    <td>{{ 'curl -X ' ~ call.method|upper ~ ' --data "' ~ call.params|url_encode ~ '" ' ~ call.host ~ call.path }}</td>
                 </tr>
             {% endif %}
             <tr>
