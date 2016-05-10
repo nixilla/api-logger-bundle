@@ -62,7 +62,7 @@ If you're using `sensio/buzz-bundle`, you may want to override the `buzz.client`
 
     services:
         buzz.client:
-            class: %buzz.client.class%
+            class: "%buzz.client.class%"
             calls:
                 - [ "setTimeout", [ "%buzz.client.timeout%" ] ]
                 - [ "setLogger", [ "@nixilla.api.logger" ] ]
