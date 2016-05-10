@@ -16,7 +16,6 @@ Via composer:
         }
     }
 
-use "~0.2.1" for Symfony < 3
 
 Add bundle to your AppKernel:
 
