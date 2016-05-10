@@ -27,11 +27,12 @@ class ApiLogger implements Api
         $this->debug = $debug;
     }
 
-    public function logCall($path, $method, $time, array $requestHeaders = [], array $params = [], array $responseHeaders = [], $result = null)
+    public function logCall($host, $path, $method, $time, array $requestHeaders = [], array $params = [], array $responseHeaders = [], $result = null)
     {
         if($this->debug)
         {
             $this->calls[] = [
+                'host' => $host,
                 'path' => $path,
                 'method' => $method,
                 'time' => $time,

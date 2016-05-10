@@ -33,6 +33,7 @@ trait Common
             $time = microtime(true) - $start;
             parse_str($request->getContent(), $payload);
             $this->getLogger()->logCall(
+                $request->getHost(),
                 $request->getResource(),
                 $request->getMethod(),
                 $time,
