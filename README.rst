@@ -3,6 +3,9 @@ API Logger Bundle
 
 API logger bundle help your app with API calls monitoring.
 
+.. image:: https://travis-ci.org/nixilla/api-logger-bundle.svg?branch=master
+    :target: https://travis-ci.org/nixilla/api-logger-bundle
+
 Installation
 ------------
 
