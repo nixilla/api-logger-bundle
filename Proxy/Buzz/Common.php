@@ -31,7 +31,15 @@ trait Common
         if($this->hasLogger())
         {
             $time = microtime(true) - $start;
-            parse_str($request->getContent(), $payload);
+
+            if($request->getHeader('Content-Type') == 'application/json')
+            {
+                $payload = json_decode($request->getContent(), true) ?: [];
+            }
+            else {
+                parse_str($request->getContent(), $payload);
+            }
+
             $this->getLogger()->logCall(
                 $request->getHost(),
                 $request->getResource(),

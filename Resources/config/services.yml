@@ -15,3 +15,9 @@ services:
     nixilla.api.logger:
         class: "%nixilla.api.logger.class%"
         arguments: [ "@logger", "%kernel.debug%" ]
+
+    nixilla.curl_format.twig_extension:
+        class: Nixilla\Api\LoggerBundle\Twig\CurlFormatter
+        public: true
+        tags:
+            - { name: twig.extension }

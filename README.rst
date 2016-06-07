@@ -3,6 +3,9 @@ API Logger Bundle
 
 API logger bundle help your app with API calls monitoring.
 
+.. image:: https://travis-ci.org/nixilla/api-logger-bundle.svg?branch=master
+    :target: https://travis-ci.org/nixilla/api-logger-bundle
+
 Installation
 ------------
 
@@ -62,7 +65,7 @@ If you're using `sensio/buzz-bundle`, you may want to override the `buzz.client`
 
     services:
         buzz.client:
-            class: %buzz.client.class%
+            class: "%buzz.client.class%"
             calls:
                 - [ "setTimeout", [ "%buzz.client.timeout%" ] ]
                 - [ "setLogger", [ "@nixilla.api.logger" ] ]
