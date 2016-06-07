@@ -53,11 +53,11 @@
                     <th>Request payload</th>
                     <td>{{ call.params|yaml_encode }}</td>
                 </tr>
-                <tr>
-                    <th>cURL command</th>
-                    <td>{{ call|format_curl_command }}</td>
-                </tr>
             {% endif %}
+            <tr>
+                <th>cURL command</th>
+                <td>{{ call|format_curl_command }}</td>
+            </tr>
             <tr>
                 <th>Response headers:</th>
                 <td>{{ call.response_headers|yaml_encode }}</td>
