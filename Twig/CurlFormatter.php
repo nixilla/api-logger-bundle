@@ -18,6 +18,38 @@ class CurlFormatter extends \Twig_Extension
 
     public function formatForCurl(array $singleCall)
     {
-        return "";
+        return sprintf(
+            'curl -X %s%s %s/%s --data \'%s\'',
+            $singleCall['method'],
+            $this->generateHeaders($singleCall['request_headers']),
+            $singleCall['host'],
+            $singleCall['path'],
+            $this->formatParams($singleCall)
+        );
+    }
+
+    private function generateHeaders($request_headers)
+    {
+        $output = '';
+
+        foreach($request_headers as $value)
+        {
+            $output .= sprintf(' -H "%s"', $value);
+        }
+
+        return $output;
+    }
+
+    private function formatParams($singleCall)
+    {
+        foreach($singleCall['request_headers'] as $header)
+        {
+            if($header == 'Content-Type: application/json')
+            {
+                return json_encode($singleCall['params']);
+            }
+        }
+
+        return http_build_query($singleCall['params']);
     }
 }
