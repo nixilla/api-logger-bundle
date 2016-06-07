@@ -21,7 +21,7 @@ class CurlFormatterSpec extends ObjectBehavior
             'method' => 'POST',
             'params' => ['foo' => 'bar', 'baz' => 1],
             'request_headers' => [ 'Authorization: Bearer lakdjfghalkdjfgh' ]
-        ])->shouldBeEqualTo("curl -X POST -H \"Authorization: Bearer lakdjfghalkdjfgh\" http://endpoint/api/endoint --data 'foo=bar&baz=1'");
+        ])->shouldBeEqualTo("curl -v -X POST -H \"Authorization: Bearer lakdjfghalkdjfgh\" http://endpoint/api/endoint --data 'foo=bar&baz=1'");
 
         $this->formatForCurl([
             'host' => 'http://endpoint',
@@ -29,7 +29,7 @@ class CurlFormatterSpec extends ObjectBehavior
             'method' => 'PATCH',
             'params' => ['foo' => 'bar', 'baz' => ['key' => 'value']],
             'request_headers' => [ 'Authorization: Bearer lakdjfghalkdjfgh', 'Content-Type: application/json' ]
-        ])->shouldBeEqualTo("curl -X PATCH -H \"Authorization: Bearer lakdjfghalkdjfgh\" -H \"Content-Type: application/json\" http://endpoint/api/endoint --data '{\"foo\":\"bar\",\"baz\":{\"key\":\"value\"}}'");
+        ])->shouldBeEqualTo("curl -v -X PATCH -H \"Authorization: Bearer lakdjfghalkdjfgh\" -H \"Content-Type: application/json\" http://endpoint/api/endoint --data '{\"foo\":\"bar\",\"baz\":{\"key\":\"value\"}}'");
     }
 
     function it_has_a_name()
