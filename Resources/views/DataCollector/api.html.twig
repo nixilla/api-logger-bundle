@@ -55,7 +55,7 @@
                 </tr>
                 <tr>
                     <th>cURL command</th>
-                    <td>{{ 'curl -X ' ~ call.method|upper ~ ' --data "' ~ call.params|url_encode ~ '" ' ~ call.host ~ call.path }}</td>
+                    <td>{{ call|format_curl_command }}</td>
                 </tr>
             {% endif %}
             <tr>
