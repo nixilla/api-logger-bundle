@@ -17,10 +17,10 @@
   "require": {
     "php": ">=5.4",
     "symfony/framework-bundle": "~2.3|~3.0",
-    "twig/twig": "^1.24"
+    "twig/twig": "~1.24|~2"
   },
   "require-dev" :{
-    "phpspec/phpspec": "^2.5"
+    "phpspec/phpspec": "^2.5|~3"
   },
   "autoload": {
     "psr-0": {
