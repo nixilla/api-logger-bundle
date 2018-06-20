@@ -66,5 +66,3 @@ services:
             - [ "setTimeout", [ "%buzz.client.timeout%" ] ]
             - [ "setLogger", [ "@nixilla.api.logger" ] ]
 ```
-
-    
