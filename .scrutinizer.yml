@@ -1,0 +1,24 @@
+checks:
+    php:
+        code_rating: true
+        duplication: true
+filter:
+    excluded_paths:
+        - spec/*
+
+build:
+    environment:
+        variables:
+            COMPOSER_MEMORY_LIMIT: -1
+    dependencies:
+        before:
+            - pecl install xdebug
+            - echo "zend_extension=xdebug.so" > /home/scrutinizer/.phpenv/versions/7.2.0/etc/conf.d/xdebug.ini
+
+    tests:
+        override:
+            -
+                command: 'bin/phpspec run -f progress'
+                coverage:
+                    file: 'build/logs/clover.xml'
+                    format: 'clover'

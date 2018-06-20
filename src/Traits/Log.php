@@ -2,8 +2,17 @@
 
 namespace Nixilla\Api\LoggerBundle\Traits;
 
+use Nixilla\Api\LoggerBundle\Logger\ApiInterface;
+
 trait Log
 {
+    /** @var ApiInterface */
+    protected $logger;
+
+    public function getLogger()
+    {
+        return $this->logger;
+    }
 
     public function setLogger($logger)
     {
@@ -12,10 +21,6 @@ trait Log
         return $this;
     }
 
-    public function getLogger()
-    {
-        return $this->logger;
-    }
 
     public function hasLogger()
     {

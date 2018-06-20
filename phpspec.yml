@@ -1,0 +1,15 @@
+suites:
+    default:
+        namespace: Nixilla\Api\LoggerBundle
+        psr4_prefix: Nixilla\Api\LoggerBundle
+
+extensions:
+  LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
+    blacklist: [ 'spec', 'vendor' ]
+    format:
+      - clover
+      - html
+
+    output:
+      clover: build/logs/clover.xml
+      html: build/coverage

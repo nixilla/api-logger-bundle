@@ -10,7 +10,7 @@ class CurlFormatterSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Nixilla\Api\LoggerBundle\Twig\CurlFormatter');
+        $this->shouldHaveType(CurlFormatter::class);
     }
 
     function it_provides_Twig_filter_which_formats_input_into_curl_command()
@@ -30,6 +30,14 @@ class CurlFormatterSpec extends ObjectBehavior
             'params' => ['foo' => 'bar', 'baz' => ['key' => 'value']],
             'request_headers' => [ 'Authorization: Bearer lakdjfghalkdjfgh', 'Content-Type: application/json' ]
         ])->shouldBeEqualTo("curl -v -X PATCH -H \"Authorization: Bearer lakdjfghalkdjfgh\" -H \"Content-Type: application/json\" http://endpoint/api/endoint --data '{\"foo\":\"bar\",\"baz\":{\"key\":\"value\"}}'");
+
+        $this->formatForCurl([
+            'host' => 'http://endpoint',
+            'path' => 'api/endoint',
+            'method' => 'GET',
+            'params' => ['foo' => 'bar', 'baz' => ['key' => 'value']],
+            'request_headers' => [ 'Authorization: Bearer lakdjfghalkdjfgh', 'Content-Type: application/json' ]
+        ])->shouldBeEqualTo("curl -v -X GET -H \"Authorization: Bearer lakdjfghalkdjfgh\" -H \"Content-Type: application/json\" http://endpoint/api/endoint");
     }
 
     function it_has_a_name()

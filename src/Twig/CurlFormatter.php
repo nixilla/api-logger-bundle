@@ -54,5 +54,9 @@ class CurlFormatter extends \Twig_Extension
 
             return sprintf(" --data '%s'", http_build_query($singleCall['params']));
         }
+        else
+        {
+            return '';
+        }
     }
 }

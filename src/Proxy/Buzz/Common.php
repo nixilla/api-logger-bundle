@@ -4,23 +4,11 @@ namespace Nixilla\Api\LoggerBundle\Proxy\Buzz;
 
 use Buzz\Message\MessageInterface;
 use Buzz\Message\RequestInterface;
-use Nixilla\Api\LoggerBundle\Logger\ApiLogger;
 use Nixilla\Api\LoggerBundle\Traits\Log;
 
 trait Common
 {
     use Log;
-    /**
-     * @var ApiLogger
-     */
-    protected $logger;
-
-    public function setLogger(ApiLogger $logger)
-    {
-        $this->logger = $logger;
-
-        return $this;
-    }
 
     public function send(RequestInterface $request, MessageInterface $response, array $options = array())
     {
