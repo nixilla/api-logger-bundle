@@ -63,4 +63,10 @@ class ApiDataCollector extends DataCollector
 
         return $total;
     }
+
+    public function reset()
+    {
+        $this->data = [];
+    }
+
 }

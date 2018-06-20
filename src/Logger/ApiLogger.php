@@ -3,7 +3,7 @@
 namespace Nixilla\Api\LoggerBundle\Logger;
 use Psr\Log\LoggerInterface;
 
-class ApiLogger implements Api
+class ApiLogger implements ApiInterface
 {
     /**
      * @var LoggerInterface
