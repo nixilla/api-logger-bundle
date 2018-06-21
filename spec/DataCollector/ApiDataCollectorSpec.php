@@ -3,16 +3,15 @@
 namespace spec\Nixilla\Api\LoggerBundle\DataCollector;
 
 use Nixilla\Api\LoggerBundle\DataCollector\ApiDataCollector;
-use Nixilla\Api\LoggerBundle\Logger\Api;
+use Nixilla\Api\LoggerBundle\Logger\ApiInterface;
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 
 class ApiDataCollectorSpec extends ObjectBehavior
 {
-    function let(Api $logger)
+    function let(ApiInterface $logger)
     {
         $this->beConstructedWith($logger);
     }
@@ -28,7 +27,7 @@ class ApiDataCollectorSpec extends ObjectBehavior
         $this->getName()->shouldNotReturn(null);
     }
 
-    function it_implements_collect_method(Api $logger, Request $request, Response $response)
+    function it_implements_collect_method(ApiInterface $logger, Request $request, Response $response)
     {
         $logger->getCalls()->shouldBeCalled()->willReturn([['time' => 5 ]]);
         $logger->getCallsCount()->shouldBeCalled()->willReturn(5);
