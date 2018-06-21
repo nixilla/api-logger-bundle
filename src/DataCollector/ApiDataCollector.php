@@ -2,7 +2,7 @@
 
 namespace Nixilla\Api\LoggerBundle\DataCollector;
 
-use Nixilla\Api\LoggerBundle\Logger\Api;
+use Nixilla\Api\LoggerBundle\Logger\ApiInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
@@ -17,7 +17,7 @@ class ApiDataCollector extends DataCollector
     /**
      * {@inheritDoc}
      */
-    public function __construct(Api $logger)
+    public function __construct(ApiInterface $logger)
     {
         $this->logger = $logger;
     }

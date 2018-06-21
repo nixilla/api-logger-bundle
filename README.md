@@ -66,3 +66,23 @@ services:
             - [ "setTimeout", [ "%buzz.client.timeout%" ] ]
             - [ "setLogger", [ "@nixilla.api.logger" ] ]
 ```
+
+If you're using `twilio/sdk` you may want to override their Http Client in config_dev.yml
+
+```yaml
+# app/config/config_dev.yml
+imports:
+    - { resource: config.yml }
+
+services:
+    
+    twilio.http.client:
+        class: Nixilla\Api\LoggerBundle\Proxy\Twilio\CurlClient
+        calls:
+            - [ "setLogger", [ "@nixilla.api.logger" ] ]
+            
+    twilio.rest.client:
+        class: Twilio\Rest\Client
+        arguments: [ "%twilio.username%", "%twilio.password%", ~, ~, '@twilio.http.client']
+
+```
