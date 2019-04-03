@@ -17,7 +17,7 @@
   ],
   "require": {
     "php": ">=5.6",
-    "symfony/framework-bundle": "~2.3||~3",
+    "symfony/framework-bundle": "~2.3||~3||~4",
     "twig/twig": "~1.24||~2",
     "kriswallsmith/buzz": "<0.16"
   },
@@ -29,7 +29,7 @@
     "sebastian/phpcpd": "^4.0",
     "leanphp/phpspec-code-coverage": "^4.2",
     "php-coveralls/php-coveralls": "^2.1",
-    "symfony/expression-language": "~2.3||~3",
+    "symfony/expression-language": "~2.3||~3||~4",
     "twilio/sdk": "^5.19"
   },
   "autoload": {
