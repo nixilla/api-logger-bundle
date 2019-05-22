@@ -44,9 +44,9 @@ class CurlFormatter extends \Twig_Extension
     {
         if($singleCall['method'] != 'GET')
         {
-            foreach($singleCall['request_headers'] as $header)
+            foreach($singleCall['request_headers'] as $key => $value)
             {
-                if($header == 'Content-Type: application/json')
+                if($key == 'Content-Type' && (is_array($value) ? $value[0] : $value) ==  'application/json')
                 {
                     return sprintf(" --data '%s'", json_encode($singleCall['params']));
                 }

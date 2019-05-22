@@ -9,6 +9,7 @@ use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UriInterface;
 
 class ApiLoggerMiddlewareSpec extends ObjectBehavior
@@ -33,7 +34,7 @@ class ApiLoggerMiddlewareSpec extends ObjectBehavior
         $this->handleRequest($request, $next);
     }
 
-    function it_can_handle_response(RequestInterface $request, ResponseInterface $response, UriInterface $uri)
+    function it_can_handle_response(RequestInterface $request, ResponseInterface $response, UriInterface $uri, StreamInterface $stream)
     {
         $next = function() {
             return;
@@ -46,12 +47,12 @@ class ApiLoggerMiddlewareSpec extends ObjectBehavior
         $request->getMethod()->shouldBeCalled();
 
         $response->getHeaders()->willReturn([]);
-        $response->getBody()->willReturn('[]');
+        $response->getBody()->willReturn($stream);
 
         $this->handleResponse($request, $response, $next);
     }
 
-    function it_can_handle_response_with_json(RequestInterface $request, ResponseInterface $response, UriInterface $uri)
+    function it_can_handle_response_with_json(RequestInterface $request, ResponseInterface $response, UriInterface $uri, StreamInterface $stream)
     {
         $next = function() {
             return;
@@ -64,7 +65,7 @@ class ApiLoggerMiddlewareSpec extends ObjectBehavior
         $request->getMethod()->shouldBeCalled();
 
         $response->getHeaders()->willReturn([]);
-        $response->getBody()->willReturn('[]');
+        $response->getBody()->willReturn($stream);
 
         $this->handleResponse($request, $response, $next);
     }
