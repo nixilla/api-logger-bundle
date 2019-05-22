@@ -20,3 +20,7 @@ services:
         public: true
         tags:
             - { name: twig.extension }
+
+    Nixilla\Api\LoggerBundle\Middleware\ApiLoggerMiddleware:
+        arguments:
+            $logger: '@nixilla.api.logger'

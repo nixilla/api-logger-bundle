@@ -19,7 +19,7 @@ class CurlFormatter extends \Twig_Extension
     public function formatForCurl(array $singleCall)
     {
         return sprintf(
-            'curl -v -X %s%s %s/%s%s',
+            'curl -v -X %s%s %s%s%s',
             $singleCall['method'],
             $this->generateHeaders($singleCall['request_headers']),
             $singleCall['host'],
@@ -32,9 +32,9 @@ class CurlFormatter extends \Twig_Extension
     {
         $output = '';
 
-        foreach($request_headers as $value)
+        foreach($request_headers as $key => $value)
         {
-            $output .= sprintf(' -H "%s"', $value);
+            $output .= sprintf(' -H "%s: %s"', $key, is_array($value) ? $value[0] : $value);
         }
 
         return $output;

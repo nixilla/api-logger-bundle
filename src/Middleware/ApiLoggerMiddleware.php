@@ -46,14 +46,14 @@ class ApiLoggerMiddleware implements MiddlewareInterface
         }
 
         $this->logger->logCall(
-            $request->getUri()->getHost(),
+            sprintf('%s://%s', $request->getUri()->getScheme(), $request->getUri()->getHost()),
             $request->getUri()->getPath(),
             $request->getMethod(),
             $time,
             $request->getHeaders(),
             $payload,
             $response->getHeaders(),
-            $response->getBody()
+            $response->getBody()->getContents()
         );
 
         return $next($request, $response);
