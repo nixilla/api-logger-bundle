@@ -9,8 +9,11 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $treeBuilder->root('nixilla_api_logger');
+        $treeBuilder = new TreeBuilder('nixilla_api_logger');
+
+        if ( ! method_exists($treeBuilder, 'getRootNode')) {
+            $treeBuilder->root('nixilla_api_logger');
+        }
 
         return $treeBuilder;
     }

@@ -10,7 +10,7 @@ use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 class ApiDataCollector extends DataCollector
 {
     /**
-     * @var \Nixilla\Api\LoggerBundle\Logger\Api
+     * @var \Nixilla\Api\LoggerBundle\Logger\ApiInterface
      */
     protected $logger;
 
