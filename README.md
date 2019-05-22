@@ -6,6 +6,10 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/nixilla/api-logger-bundle/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/nixilla/api-logger-bundle/?branch=develop)
 [![License](https://poser.pugx.org/nixilla/api-logger-bundle/license.svg)](https://packagist.org/packages/nixilla/api-logger-bundle)
 
+## Versions
+
+For `buzz<0.16` please use `nixilla/api-logger-bundle:^0.4` and for latest `buzz:^1`, use `nixilla/api-logger-bundle:^0.5`
+
 ## Installation
 
 Step 1: composer
@@ -30,6 +34,19 @@ Step 2: enable bundle by adding it to AppKernel
 ```
 
 Step 3: configuration
+
+For latest buzz all you need to do is add this line into `config/packages/buzz.yml`
+
+```yaml
+services:
+    Buzz\Browser:
+        arguments: ['@Buzz\Client\BuzzClientInterface', '@Psr\Http\Message\RequestFactoryInterface']
+        calls:
+            # other middleware classes here
+            - ['addMiddleware', ['@Nixilla\Api\LoggerBundle\Middleware\ApiLoggerMiddleware']]
+```
+
+For earlier version of buzz <0.16 and earlier version of this bundle <0.5 you need to configure like this:
 
 If you're use HWIOAuthBundle and you want to monitor all OAuth API calls, you can now override default
 `hwi_oauth.http_client` service used by this bundle by adding this few lines to your `config_dev.yml` file
