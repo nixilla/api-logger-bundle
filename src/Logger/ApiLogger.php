@@ -2,6 +2,7 @@
 
 namespace Nixilla\Api\LoggerBundle\Logger;
 use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 
 class ApiLogger implements ApiInterface
 {
@@ -21,9 +22,9 @@ class ApiLogger implements ApiInterface
     protected $debug = false;
 
 
-    public function __construct(LoggerInterface $logger, $debug = false)
+    public function __construct(LoggerInterface $logger = null, $debug = false)
     {
-        $this->logger = $logger;
+        $this->logger = $logger ?: new NullLogger();
         $this->debug = $debug;
     }
 

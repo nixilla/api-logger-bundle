@@ -18,6 +18,7 @@ class NixillaApiLoggerExtensionSpec extends ObjectBehavior
 
     function it_implements_required_load_method(ContainerBuilder $container)
     {
+        $container->removeBindings(Argument::any())->shouldBeCalled();
         $container->fileExists(Argument::any())->willReturn(true);
         $container->setDefinition(Argument::any(), Argument::any())->shouldBeCalled();
         $container->setParameter(Argument::any(), Argument::any())->shouldBeCalled();
