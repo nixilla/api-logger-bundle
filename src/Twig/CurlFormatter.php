@@ -2,7 +2,10 @@
 
 namespace Nixilla\Api\LoggerBundle\Twig;
 
-class CurlFormatter extends \Twig_Extension
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
+
+class CurlFormatter extends AbstractExtension
 {
     public function getName()
     {
@@ -12,7 +15,7 @@ class CurlFormatter extends \Twig_Extension
     public function getFilters()
     {
         return array(
-            new \Twig_SimpleFilter('format_curl_command', array($this, 'formatForCurl'))
+            new TwigFilter('format_curl_command', array($this, 'formatForCurl'))
         );
     }
 
