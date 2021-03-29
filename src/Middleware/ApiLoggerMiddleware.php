@@ -56,6 +56,11 @@ class ApiLoggerMiddleware implements MiddlewareInterface
             $response->getBody()->getContents()
         );
 
+        /**
+         * need to rewind the contents so it can be retrieved later!!!
+         */
+        $response->getBody()->rewind();
+        
         return $next($request, $response);
     }
 }
