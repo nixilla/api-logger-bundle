@@ -18,20 +18,20 @@
   "require": {
     "php": ">=5.6",
     "ext-json": "*",
-    "symfony/framework-bundle": "~2.3||~3||~4",
-    "twig/twig": "~1.24||~2",
-    "kriswallsmith/buzz": "^1"
+    "symfony/framework-bundle": "~2.3||~3||~4||~5",
+    "kriswallsmith/buzz": "^1",
+    "twig/twig": "^3.0"
   },
   "require-dev" :{
-    "phpspec/phpspec": "^4.3",
-    "pdepend/pdepend": "^2.5",
-    "phploc/phploc": "^4.0",
-    "phpmd/phpmd": "^2.6",
-    "sebastian/phpcpd": "^4.0",
-    "leanphp/phpspec-code-coverage": "^4.2",
-    "php-coveralls/php-coveralls": "^2.1",
-    "symfony/expression-language": "~2.3||~3||~4",
-    "twilio/sdk": "^5.19"
+    "phpspec/phpspec": "^6",
+    "pdepend/pdepend": "^2.6.1",
+    "phploc/phploc": "^5.0",
+    "phpmd/phpmd": "^2.8.1",
+    "sebastian/phpcpd": "^4.1",
+    "friends-of-phpspec/phpspec-code-coverage": "^4.3.2",
+    "php-coveralls/php-coveralls": "^2.2",
+    "symfony/expression-language": "~2.3||~3||~4||~5",
+    "twilio/sdk": "^5.42"
   },
   "autoload": {
     "psr-4": {
@@ -41,7 +41,7 @@
   "config": {
     "bin-dir": "bin",
     "platform": {
-      "php": "7.2"
+      "php": "7.3"
     }
   }
 }

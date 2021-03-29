@@ -8,7 +8,7 @@
 
 ## Versions
 
-For `buzz<0.16` please use `nixilla/api-logger-bundle:^0.4` and for latest `buzz:^1`, use `nixilla/api-logger-bundle:^0.5`
+For `buzz<0.16` please use `nixilla/api-logger-bundle:^0.4` and for latest `buzz:^1`, use `nixilla/api-logger-bundle:^0.5.1`
 
 ## Installation
 
